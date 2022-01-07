@@ -20,10 +20,7 @@ def listpolicies():
         policylist.append(x['PolicyId'])
         policyname.append(x['PolicyName'])
     policydict = {}
-    for key in policylist:
-        for value in policyname:
-            policydict[key] = value
-            policyname.remove(value)
+    policydict = dict(zip(policylist, policyname))
     return policydict
     
 def getpolicydetails(policydict):
